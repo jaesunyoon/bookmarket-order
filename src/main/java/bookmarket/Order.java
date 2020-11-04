@@ -33,8 +33,6 @@ public class Order {
         // mappings goes here
         OrderApplication.applicationContext.getBean(bookmarket.external.PaymentService.class)
             .payReq(payment);
-
-
     }
 
     @PreRemove
