@@ -19,13 +19,12 @@ public class Order {
 
     @PostPersist
     public void onPostPersist(){
-/*        try {
+        try {
             Thread.currentThread().sleep((long) (400 + Math.random() * 220));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
- */
         Ordered ordered = new Ordered();
         BeanUtils.copyProperties(this, ordered);
         ordered.setStatus("Ordered");
