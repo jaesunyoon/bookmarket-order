@@ -1,4 +1,5 @@
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/OrderRepository.java
+/Users/user/data/bookmarket/Order/src/main/java/bookmarket/external/Mileage.java
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/AbstractEvent.java
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/external/PaymentService.java
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/Paid.java
@@ -9,6 +10,7 @@
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/external/Payment.java
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/Order.java
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/PolicyHandler.java
+/Users/user/data/bookmarket/Order/src/main/java/bookmarket/external/MileageService.java
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/OrderApplication.java
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/Shipped.java
 /Users/user/data/bookmarket/Order/src/main/java/bookmarket/DeliveryCanceled.java
