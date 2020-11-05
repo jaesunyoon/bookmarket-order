@@ -4,3 +4,4 @@ metadata:
   name: apipayurl
 data:
   url:  http://payment:8088
+  mileurl: http://mileage:8088

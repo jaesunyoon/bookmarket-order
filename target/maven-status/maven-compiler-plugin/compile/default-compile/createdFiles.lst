@@ -1,4 +1,5 @@
 bookmarket/Shipped.class
+bookmarket/external/MileageService.class
 bookmarket/config/kafka/KafkaProcessor.class
 bookmarket/Order.class
 bookmarket/OrderApplication.class
@@ -13,3 +14,4 @@ bookmarket/DeliveryCanceled.class
 bookmarket/PolicyHandler.class
 bookmarket/Paid.class
 bookmarket/AbstractEvent.class
+bookmarket/external/Mileage.class

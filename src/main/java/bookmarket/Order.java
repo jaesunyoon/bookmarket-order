@@ -15,6 +15,7 @@ public class Order {
     private Long qty;
     private String status;
     private Long customerId;
+    private String isMile;
 
     @PostPersist
     public void onPostPersist(){
@@ -25,14 +26,29 @@ public class Order {
 
         //Following code causes dependency to external APIs
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
+        if("Y".equals(this.getIsMile())){
+            bookmarket.external.Mileage mileage = new bookmarket.external.Mileage();
+            mileage.setOrderId(this.getId());
+            mileage.setStatus("OrderedByMileage");
+            mileage.setCustomerId(this.getCustomerId());
+            mileage.setMileage(this.getQty());
+            mileage.setIsMile("Y");
+            // mappings goes here
+            OrderApplication.applicationContext.getBean(bookmarket.external.MileageService.class)
+                    .payReq(mileage);
 
-        bookmarket.external.Payment payment = new bookmarket.external.Payment();
-        payment.setOrderId(this.getId());
-        payment.setStatus("Ordered");
-        payment.setCustomerId(this.getCustomerId());
-        // mappings goes here
-        OrderApplication.applicationContext.getBean(bookmarket.external.PaymentService.class)
-            .payReq(payment);
+        } else{
+            bookmarket.external.Payment payment = new bookmarket.external.Payment();
+            payment.setOrderId(this.getId());
+            payment.setStatus("Ordered");
+            payment.setCustomerId(this.getCustomerId());
+            payment.setIsMile("N");
+            // mappings goes here
+            OrderApplication.applicationContext.getBean(bookmarket.external.PaymentService.class)
+                    .payReq(payment);
+
+        }
+
     }
 
     @PreRemove
@@ -81,6 +97,11 @@ public class Order {
     }
 
 
+    public String getIsMile() {
+        return isMile;
+    }
 
-
+    public void setIsMile(String isMile) {
+        this.isMile = isMile;
+    }
 }
